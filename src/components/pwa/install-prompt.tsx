@@ -103,7 +103,8 @@ export function InstallPrompt() {
                     Install King Tech Foundation
                   </p>
                   <p className="mt-1 text-caption leading-relaxed text-ktf-gray-600">
-                    Keep KTF one tap away for a faster, polished app-like experience.
+                    Keep KTF one tap away for a faster, polished app-like
+                    experience.
                   </p>
                 </div>
 
@@ -130,8 +131,13 @@ export function InstallPrompt() {
               {isIOS ? (
                 <div className="mt-4 rounded-xl border border-ktf-gray-200 bg-ktf-surface p-3">
                   <p className="text-caption leading-relaxed text-ktf-gray-700">
-                    On iPhone or iPad, tap the <span className="font-semibold text-ktf-blue">Share</span> icon,
-                    then choose <span className="font-semibold text-ktf-blue">Add to Home Screen</span>.
+                    On iPhone or iPad, tap the{" "}
+                    <span className="font-semibold text-ktf-blue">Share</span>{" "}
+                    icon, then choose{" "}
+                    <span className="font-semibold text-ktf-blue">
+                      Add to Home Screen
+                    </span>
+                    .
                   </p>
                 </div>
               ) : (
