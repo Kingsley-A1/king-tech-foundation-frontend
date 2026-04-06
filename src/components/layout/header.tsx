@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { NAV_LINKS } from "@/lib/constants";
@@ -25,9 +26,17 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 font-bold text-xl tracking-tight text-ktf-obsidian transition-opacity hover:opacity-80"
+          className="flex items-center gap-2.5 font-bold text-xl tracking-tight text-ktf-obsidian transition-opacity hover:opacity-80"
           onClick={closeMobile}
         >
+          <Image
+            src="/icons/ktf-logo.png"
+            alt="KTF logo"
+            width={32}
+            height={32}
+            className="rounded-lg object-contain"
+            priority
+          />
           <span className="text-ktf-blue">KING</span>
           <span className="text-ktf-blue">TECH</span>
           <span className="text-ktf-obsidian">FOUNDATION</span>
@@ -118,7 +127,7 @@ export function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[199] bg-ktf-obsidian/40 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-[199] bg-ktf-obsidian/60 backdrop-blur-md lg:hidden"
               onClick={closeMobile}
               aria-hidden="true"
             />

@@ -1,11 +1,13 @@
 import { Button, Badge } from "@/components/ui";
 import { Container } from "@/components/layout";
+import Image from "next/image";
 import {
   STATS,
   SERVICES,
   VALUES,
   TESTIMONIALS,
   PARTNERS,
+  PROJECTS,
 } from "@/lib/constants";
 import type { Metadata } from "next";
 
@@ -48,8 +50,14 @@ export default function HomePage() {
             For Honour and For Excellence
           </Badge>
           <h1 className="text-h1 sm:text-display font-bold leading-display tracking-tight text-ktf-white max-w-4xl mx-auto">
-            Engineering Solutions for{" "}
-            <span className="text-ktf-blue">This Generation</span> and the Next
+            Engineering Solutions for This,{" "}
+            <span className="whitespace-nowrap">
+              and{" "}
+              <span className="text-ktf-blue">
+                The Next Generation
+                <span className="animate-blink text-white font-light">_</span>
+              </span>
+            </span>
           </h1>
           <p className="mt-6 text-body-lg leading-body text-ktf-gray-400 max-w-2xl mx-auto">
             King Tech Foundation builds production-grade digital products — web
@@ -72,8 +80,142 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ── Stats Strip ──────────────────────────────────────── */}
-      <section className="bg-ktf-obsidian py-16">
+      {/* ── Accomplished Works ───────────────────────────────── */}
+      <section className="relative overflow-hidden bg-ktf-obsidian py-24 sm:py-32">
+        {/* Dot grid */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+        {/* Top gold accent line */}
+        <div
+          aria-hidden="true"
+          className="absolute top-0 inset-x-0 h-px"
+          style={{
+            background:
+              "linear-gradient(to right, transparent, #f5a524 30%, #f5a524 70%, transparent)",
+            opacity: 0.5,
+          }}
+        />
+
+        <Container size="lg" className="relative">
+          {/* Section header */}
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
+            <div>
+              <p className="text-overline font-bold uppercase tracking-[0.2em] mb-3 text-ktf-warning">
+                Our Portfolio
+              </p>
+              <h2 className="text-h2 sm:text-h1 font-bold leading-display text-ktf-white">
+                Accomplished
+                <br />
+                <span className="text-ktf-blue">Works.</span>
+              </h2>
+              <p className="mt-4 text-body-lg text-ktf-gray-400 leading-body max-w-md">
+                Products shipped. Startups launched. Problems solved. This is
+                what engineering excellence looks like.
+              </p>
+            </div>
+            <Button
+              href="/projects"
+              variant="outline"
+              className="border-ktf-white/20 text-ktf-white hover:bg-ktf-white/10 hover:border-ktf-white/40 shrink-0"
+            >
+              View Full Portfolio →
+            </Button>
+          </div>
+
+          {/* Featured project grid */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {PROJECTS.filter((p) => p.featured).map((project, i) => (
+              <a
+                key={project.id}
+                href={
+                  project.comingSoon
+                    ? "/projects"
+                    : project.liveUrl ?? "/projects"
+                }
+                target={project.comingSoon ? undefined : "_blank"}
+                rel={project.comingSoon ? undefined : "noopener noreferrer"}
+                className={[
+                  "group relative overflow-hidden rounded-2xl bg-ktf-charcoal",
+                  i === 0
+                    ? "sm:col-span-2 lg:col-span-2 aspect-[16/9]"
+                    : "aspect-[4/3]",
+                ].join(" ")}
+              >
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  sizes={
+                    i === 0
+                      ? "(max-width: 640px) 100vw, (max-width:1024px) 66vw, 66vw"
+                      : "(max-width: 640px) 100vw, 33vw"
+                  }
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-ktf-obsidian/90 via-ktf-obsidian/30 to-transparent transition-opacity duration-300 group-hover:from-ktf-obsidian/80" />
+                {/* Content overlay */}
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="rounded-full bg-ktf-white/10 px-2.5 py-0.5 text-caption font-medium text-ktf-white backdrop-blur-sm">
+                      {project.category}
+                    </span>
+                    {project.comingSoon ? (
+                      <span className="rounded-full bg-ktf-warning/20 px-2.5 py-0.5 text-caption font-medium text-ktf-warning">
+                        Coming Soon
+                      </span>
+                    ) : (
+                      <span className="rounded-full bg-ktf-success/20 px-2.5 py-0.5 text-caption font-semibold text-ktf-success">
+                        ● Live
+                      </span>
+                    )}
+                  </div>
+                  <h3
+                    className={[
+                      "font-bold text-ktf-white leading-tight",
+                      i === 0 ? "text-h3" : "text-h5",
+                    ].join(" ")}
+                  >
+                    {project.name}
+                  </h3>
+                  {i === 0 && (
+                    <p className="mt-2 text-body-sm text-ktf-gray-300 leading-body line-clamp-2">
+                      {project.description}
+                    </p>
+                  )}
+                </div>
+              </a>
+            ))}
+          </div>
+
+          {/* Bottom stat strip */}
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-12 gap-y-4 border-t border-ktf-white/10 pt-10">
+            {[
+              { value: "11+", label: "Projects Shipped" },
+              { value: "100%", label: "Client Satisfaction" },
+              { value: "4+", label: "Years Building" },
+            ].map((s) => (
+              <div key={s.label} className="text-center">
+                <p className="text-h3 font-bold text-ktf-blue leading-none">
+                  {s.value}
+                </p>
+                <p className="mt-1 text-body-sm text-ktf-gray-400 font-medium">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Stats Strip ──────────────────────────────────────── */}      <section className="bg-ktf-obsidian py-16">
         <Container size="lg">
           <dl className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {STATS.map((stat) => (

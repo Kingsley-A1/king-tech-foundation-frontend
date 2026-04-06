@@ -11,9 +11,16 @@ export const SITE_URL =
 export const API_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
+export const PHONE_NUMBER = "09036826272";
+export const PHONE_DISPLAY = "0903 682 6272";
+export const WHATSAPP_NUMBER = "2349036826272";
+export const WHATSAPP_INQUIRY_MESSAGE =
+  "Hello King Tech Foundation, I'd like to enquire about your engineering services. Please can you help me?";
+
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Partnerships", href: "/partnerships" },
   { label: "Reviews", href: "/reviews" },
@@ -307,3 +314,165 @@ export const PARTNERSHIP_TIERS = [
     highlighted: false,
   },
 ] as const;
+
+//=========================================
+// Projects
+//=========================================
+export type ProjectType = "web" | "mobile" | "ios" | "desktop" | "web+mobile";
+
+export const PROJECTS = [
+  {
+    id: "graviloch-finishing",
+    name: "Graviloch Finishing Ltd",
+    type: "web" as ProjectType,
+    category: "Interior Services",
+    description:
+      "A premium web presence for an interior finishing and construction company, showcasing completed projects, service offerings, and enabling quote requests.",
+    image: "/projects/graviloch-finishing.png",
+    liveUrl: "https://graviloch-finishing.vercel.app",
+    tags: ["Next.js", "Tailwind CSS", "Vercel"],
+    year: "2024",
+    comingSoon: false,
+    featured: true,
+  },
+  {
+    id: "swift-type",
+    name: "Swift Type",
+    type: "web" as ProjectType,
+    category: "Productivity Tool",
+    description:
+      "A high-performance speed typing platform with competitive leaderboards, customisable drill modes, and detailed WPM analytics for learners.",
+    image: "/projects/swift-type.png",
+    liveUrl: "https://swift-type-two.vercel.app",
+    tags: ["React", "TypeScript", "Real-time"],
+    year: "2024",
+    comingSoon: false,
+    featured: true,
+  },
+  {
+    id: "sonic-piano",
+    name: "Sonic Piano",
+    type: "web" as ProjectType,
+    category: "Music Education",
+    description:
+      "An interactive browser-based piano learning application with structured lessons, live key detection, and audio playback feedback.",
+    image: "/projects/sonic-piano.jpg",
+    liveUrl: "https://kingsley-a1.github.io/sonic-piano",
+    tags: ["JavaScript", "Web Audio API", "Canvas"],
+    year: "2024",
+    comingSoon: false,
+    featured: true,
+  },
+  {
+    id: "debranded",
+    name: "Debranded",
+    type: "web" as ProjectType,
+    category: "Brand & Design Studio",
+    description:
+      "Portfolio and showcase platform for a leading brand identity studio, with rich project galleries, case studies, and client engagement features.",
+    image: "/projects/debranded.png",
+    liveUrl: "https://debranded.vercel.app",
+    tags: ["Next.js", "Sanity CMS", "Motion"],
+    year: "2024",
+    comingSoon: false,
+    featured: true,
+  },
+  {
+    id: "crs-pdvs",
+    name: "CRS Pension DSV",
+    type: "web" as ProjectType,
+    category: "Government Digital Service",
+    description:
+      "Cross River State Pension Digital Verification System — a secure government portal for streamlining pension administration and verification workflows.",
+    image: "/projects/crs-pdvs.png",
+    liveUrl: "https://kingsley-a1.github.io/crs-pdvs",
+    tags: ["Next.js", "PostgreSQL", "Authentication"],
+    year: "2023",
+    comingSoon: false,
+    featured: false,
+  },
+  {
+    id: "king-bloggers",
+    name: "King Bloggers",
+    type: "web" as ProjectType,
+    category: "Content Platform",
+    description:
+      "A multi-author blogging platform with rich text editing, topic tagging, SEO optimisation, and reader engagement analytics.",
+    image: "/projects/king-bloggers.png",
+    liveUrl: "https://king-bloggers.vercel.app",
+    tags: ["Next.js", "MDX", "Supabase"],
+    year: "2023",
+    comingSoon: false,
+    featured: false,
+  },
+  {
+    id: "coolest",
+    name: "Coolest",
+    type: "web" as ProjectType,
+    category: "All-in-One Media Player",
+    description:
+      "A feature-rich browser-based media player supporting multiple formats with an elegant, minimal interface and seamless playback experience.",
+    image: "/projects/coolest.png",
+    liveUrl: "https://coolest-six.vercel.app",
+    tags: ["React", "HTML5 Media API", "Web APIs"],
+    year: "2024",
+    comingSoon: false,
+    featured: false,
+  },
+  {
+    id: "val-link",
+    name: "Val Link",
+    type: "web" as ProjectType,
+    category: "Link Management",
+    description:
+      "A smart link-in-bio and URL management platform for creators and businesses, with click analytics and custom branding options.",
+    image: "/projects/val-link.svg",
+    liveUrl: "https://val-link.vercel.app",
+    tags: ["Next.js", "Analytics", "Redis"],
+    year: "2023",
+    comingSoon: false,
+    featured: false,
+  },
+  {
+    id: "chris-ekong",
+    name: "Barr. Chris Ekong & Co",
+    type: "web" as ProjectType,
+    category: "Legal Services",
+    description:
+      "A distinguished professional web presence for a leading law practice, featuring case portfolio, service listings, and online consultation booking.",
+    image: "/projects/barr-chris-ekong-and-co.png",
+    liveUrl: "https://kingsley-a1.github.io/Chris-Ekong/",
+    tags: ["HTML/CSS", "JavaScript", "Responsive"],
+    year: "2023",
+    comingSoon: false,
+    featured: false,
+  },
+  {
+    id: "reign",
+    name: "Reign",
+    type: "web+mobile" as ProjectType,
+    category: "Fashion & Lifestyle",
+    description:
+      "A premium fashion brand platform with lookbook galleries, exclusive product drops, influencer collaboration features, and a native mobile companion app.",
+    image: "/projects/reign.jpg",
+    liveUrl: undefined,
+    tags: ["Next.js", "React Native", "Stripe"],
+    year: "2025",
+    comingSoon: true,
+    featured: true,
+  },
+  {
+    id: "velo",
+    name: "Velo",
+    type: "mobile" as ProjectType,
+    category: "Logistics & Delivery",
+    description:
+      "A real-time logistics and delivery management mobile app connecting drivers, dispatchers, and customers with live tracking and notifications.",
+    image: "/projects/velo.png",
+    liveUrl: undefined,
+    tags: ["React Native", "Expo", "WebSocket"],
+    year: "2025",
+    comingSoon: true,
+    featured: true,
+  },
+];
