@@ -1,33 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# King Tech Foundation — Frontend
+
+The official marketing website for King Tech Foundation (KTF), built with Next.js 16, React 19, Tailwind CSS v4, and KTF's custom design token system.
+
+## Live Site
+
+**Production:** https://king-tech-foundation-frontend.vercel.app
+
+## Tech Stack
+
+- **Framework:** Next.js 16.2.1 (App Router)
+- **UI:** React 19, Tailwind CSS v4 with KTF design tokens
+- **Animation:** Motion (motion/react) v12
+- **Language:** TypeScript (strict)
+- **Package Manager:** pnpm
+
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Homepage — Hero, Stats, Services, Values, Partners, Testimonials, CTA |
+| `/services` | Full services breakdown with features and tech stack |
+| `/about` | Mission, team story, values grid |
+| `/partnerships` | Partnership tiers and current partners |
+| `/reviews` | Client testimonials and ratings |
+| `/contact` | Contact form with validation |
+| `/design-system` | KTF design token reference |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local`:
 
-## Learn More
+```bash
+cp .env.example .env.local
+```
 
-To learn more about Next.js, take a look at the following resources:
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_SITE_URL` | Public URL of the frontend |
+| `NEXT_PUBLIC_API_URL` | Backend API URL (Railway) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pnpm build   # Production build
+pnpm start   # Start production server
+```
+
+## GitHub
+
+https://github.com/Kingsley-A1/king-tech-foundation-frontend
 
 ## Deploy on Vercel
 
