@@ -109,7 +109,7 @@ export default function HomePage() {
 
         <Container size="lg" className="relative">
           {/* Section header */}
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <div>
               <p className="text-overline font-bold uppercase tracking-[0.2em] mb-3 text-ktf-warning">
                 Our Portfolio
@@ -133,9 +133,12 @@ export default function HomePage() {
             </Button>
           </div>
 
-          {/* Featured projects marquee */}
-          <ProjectsMarquee />
-        </Container>
+          </Container>
+
+          {/* Full-viewport-width marquee — intentionally outside Container */}
+          <div className="mt-12 pb-10">
+            <ProjectsMarquee />
+          </div>
       </section>
       {/* ── Stats Strip ──────────────────────────────────────── */}{" "}
       <section className="bg-ktf-navy py-16">
