@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { PROJECTS } from "@/lib/constants";
 
@@ -10,79 +10,67 @@ function ProjectCard({ project }: { project: Project }) {
   const isDisabled = project.comingSoon || !project.liveUrl;
 
   const card = (
-    <div className="relative flex-shrink-0 w-72 sm:w-80 rounded-2xl overflow-hidden bg-ktf-charcoal border border-ktf-white/10 group select-none">
-      {/* Image */}
-      <div className="relative aspect-video w-full overflow-hidden">
+    <article
+      className={`group relative w-72 shrink-0 snap-start overflow-hidden rounded-2xl border border-ktf-white/15 bg-linear-to-b from-ktf-navy/70 to-ktf-obsidian/95 shadow-card sm:w-80 ${
+        isDisabled
+          ? "cursor-not-allowed opacity-90"
+          : "transition-transform duration-300 hover:-translate-y-1 hover:shadow-card-hover"
+      }`}
+    >
+      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-ktf-blue/70 to-ktf-gold/70" />
+
+      <div className="relative aspect-video w-full overflow-hidden bg-ktf-navy/40">
         <Image
           src={project.image}
           alt={project.name}
           fill
           draggable={false}
           className={`object-cover transition-transform duration-500 ${
-            isDisabled ? "grayscale-[20%]" : "group-hover:scale-105"
+            isDisabled ? "saturate-75" : "group-hover:scale-105"
           }`}
           sizes="320px"
         />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-ktf-obsidian/80 via-ktf-obsidian/20 to-transparent" />
-
-        {/* Coming Soon badge */}
-        {project.comingSoon && (
-          <div className="absolute inset-0 flex items-end justify-start p-4">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-ktf-gold/40 bg-ktf-obsidian/70 backdrop-blur-sm px-3 py-1 text-caption font-semibold uppercase tracking-widest text-ktf-gold">
-              <span className="h-1.5 w-1.5 rounded-full bg-ktf-gold animate-pulse" />
-              In Development
-            </span>
-          </div>
-        )}
-
-        {/* Live badge */}
-        {!project.comingSoon && (
-          <div className="absolute top-3 right-3">
-            <span className="inline-flex items-center gap-1 rounded-full bg-ktf-success/20 border border-ktf-success/30 px-2.5 py-0.5 text-caption font-semibold text-ktf-success backdrop-blur-sm">
-              ● Live
-            </span>
-          </div>
-        )}
+        <div className="absolute inset-0 bg-linear-to-t from-ktf-obsidian/85 via-ktf-obsidian/25 to-transparent" />
       </div>
 
-      {/* Card body */}
-      <div className="p-5">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="rounded-md bg-ktf-white/8 border border-ktf-white/10 px-2 py-0.5 text-caption text-ktf-silver font-medium">
+      <div className="space-y-3 p-5">
+        <div className="flex items-center justify-between gap-2">
+          <span className="rounded-md border border-ktf-white/20 bg-ktf-white/10 px-2 py-0.5 text-caption font-medium text-ktf-white/85">
             {project.category}
           </span>
+          {isDisabled ? (
+            <span className="inline-flex items-center gap-1 rounded-full border border-ktf-gold/35 bg-ktf-gold/12 px-2.5 py-0.5 text-caption font-semibold text-ktf-gold">
+              In Development
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-1 rounded-full border border-ktf-success/35 bg-ktf-success/15 px-2.5 py-0.5 text-caption font-semibold text-ktf-success">
+              <span className="h-1.5 w-1.5 rounded-full bg-ktf-success" />
+              Live
+            </span>
+          )}
         </div>
-        <h3 className="text-body font-bold text-ktf-white leading-snug mb-1">
+
+        <h3 className="text-body font-bold leading-snug text-ktf-white">
           {project.name}
         </h3>
-        <p className="text-caption text-ktf-gray-400 leading-relaxed line-clamp-2">
+
+        <p className="line-clamp-2 text-caption leading-relaxed text-ktf-gray-400">
           {project.description}
         </p>
 
-        {/* Disabled overlay hint */}
         {isDisabled && (
-          <p className="mt-3 text-caption text-ktf-gold/70 flex items-center gap-1">
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="8" x2="12" y2="12" />
-              <line x1="12" y1="16" x2="12.01" y2="16" />
-            </svg>
-            Coming soon
+          <p className="text-caption font-medium text-ktf-gold/80">
+            This project is currently being engineered.
+          </p>
+        )}
+
+        {!isDisabled && (
+          <p className="text-caption font-medium text-ktf-blue transition-colors duration-200 group-hover:text-ktf-white">
+            Explore project -&gt;
           </p>
         )}
       </div>
-    </div>
+    </article>
   );
 
   if (isDisabled) {
@@ -120,22 +108,19 @@ export function ProjectsMarquee() {
   const posRef = useRef(0); // pixel offset for auto-scroll
   const lastTime = useRef(0);
 
-  // Duplicate for seamless loop feeling (2x set)
   const items = [...PROJECTS, ...PROJECTS];
 
-  // Auto-scroll at ~40px/s
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
 
-    const SPEED = 40; // px per second
+    const SPEED = 28;
 
     function step(ts: number) {
       if (!el) return;
       if (!isDragging.current && !isPaused) {
         const dt = lastTime.current ? (ts - lastTime.current) / 1000 : 0;
         posRef.current += SPEED * dt;
-        // Reset when we've scrolled one full "set" width
         const halfWidth = el.scrollWidth / 2;
         if (posRef.current >= halfWidth) {
           posRef.current -= halfWidth;
@@ -152,7 +137,6 @@ export function ProjectsMarquee() {
     };
   }, [isPaused]);
 
-  // Mouse drag
   function onMouseDown(e: React.MouseEvent) {
     const el = trackRef.current;
     if (!el) return;
@@ -162,6 +146,7 @@ export function ProjectsMarquee() {
     posRef.current = el.scrollLeft;
     el.style.cursor = "grabbing";
   }
+
   function onMouseMove(e: React.MouseEvent) {
     if (!isDragging.current) return;
     const el = trackRef.current;
@@ -173,20 +158,22 @@ export function ProjectsMarquee() {
     el.scrollLeft = newScroll;
     posRef.current = newScroll;
   }
+
   function onMouseUp() {
     isDragging.current = false;
     if (trackRef.current) trackRef.current.style.cursor = "grab";
   }
 
-  // Touch drag
   function onTouchStart(e: React.TouchEvent) {
     const el = trackRef.current;
     if (!el) return;
+    setIsPaused(true);
     isDragging.current = true;
     startX.current = e.touches[0].pageX - el.offsetLeft;
     scrollLeft.current = el.scrollLeft;
     posRef.current = el.scrollLeft;
   }
+
   function onTouchMove(e: React.TouchEvent) {
     if (!isDragging.current) return;
     const el = trackRef.current;
@@ -197,27 +184,24 @@ export function ProjectsMarquee() {
     el.scrollLeft = newScroll;
     posRef.current = newScroll;
   }
+
   function onTouchEnd() {
     isDragging.current = false;
+    setIsPaused(false);
   }
 
   return (
     <div
-      className="relative"
+      className="rounded-3xl border border-ktf-white/10 bg-ktf-navy/30 p-2 sm:p-3"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => {
         setIsPaused(false);
         isDragging.current = false;
       }}
     >
-      {/* Left fade */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-24 z-10 bg-gradient-to-r from-ktf-obsidian to-transparent" />
-      {/* Right fade */}
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-24 z-10 bg-gradient-to-l from-ktf-obsidian to-transparent" />
-
       <div
         ref={trackRef}
-        className="flex gap-5 overflow-x-hidden cursor-grab active:cursor-grabbing py-4 px-2"
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 py-2 cursor-grab active:cursor-grabbing sm:gap-5 sm:px-2"
         style={
           {
             scrollbarWidth: "none",
@@ -238,9 +222,8 @@ export function ProjectsMarquee() {
         ))}
       </div>
 
-      {/* Scroll hint */}
-      <p className="mt-3 text-center text-caption text-ktf-gray-600 select-none">
-        ← drag or swipe to explore →
+      <p className="mt-3 select-none text-center text-caption text-ktf-gray-500">
+        Drag or swipe to explore
       </p>
     </div>
   );

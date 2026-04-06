@@ -34,7 +34,7 @@ export default function HomePage() {
         {/* Radial glow */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[600px] w-[900px] rounded-full opacity-20"
+          className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-150 w-225 rounded-full opacity-20"
           style={{
             background:
               "radial-gradient(ellipse at center, #0A84FF 0%, transparent 70%)",
@@ -72,6 +72,14 @@ export default function HomePage() {
               className="border-ktf-gray-600 text-ktf-white hover:bg-ktf-white/10 hover:border-ktf-gray-400"
             >
               Explore Services
+            </Button>
+            <Button
+              variant="ghost"
+              size="lg"
+              href="/projects"
+              className="border border-ktf-blue/40 bg-ktf-blue/10 text-ktf-blue hover:border-ktf-blue/70 hover:bg-ktf-blue/20 hover:text-ktf-white"
+            >
+              Explore Projects
             </Button>
           </div>
         </Container>

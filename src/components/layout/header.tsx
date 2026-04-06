@@ -18,7 +18,7 @@ export function Header() {
   const closeMobile = () => setMobileOpen(false);
 
   return (
-    <header className="sticky top-0 z-[100] border-b border-ktf-gray-200 bg-ktf-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-ktf-white/60">
+    <header className="sticky top-0 z-100 border-b border-ktf-gray-200 bg-ktf-white/80 backdrop-blur-xl supports-backdrop-filter:bg-ktf-white/60">
       <nav
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
         aria-label="Main navigation"
@@ -62,7 +62,7 @@ export function Header() {
                   {isActive && (
                     <motion.span
                       layoutId="active-nav-indicator"
-                      className="absolute inset-x-2 -bottom-[1.0625rem] h-0.5 bg-ktf-blue rounded-full"
+                      className="absolute inset-x-2 -bottom-4.25 h-0.5 bg-ktf-blue rounded-full"
                       transition={{
                         type: "spring",
                         stiffness: 380,
@@ -102,28 +102,28 @@ export function Header() {
         <button
           type="button"
           onClick={toggleMobile}
-          className="lg:hidden relative z-[201] flex h-10 w-10 items-center justify-center rounded-lg text-ktf-gray-700 transition-colors hover:bg-ktf-surface"
+          className="lg:hidden relative z-201 flex h-10 w-10 items-center justify-center rounded-lg text-ktf-gray-700 transition-colors hover:bg-ktf-surface"
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
-          <div className="flex w-5 flex-col gap-[5px]">
+          <div className="flex w-5 flex-col gap-1.25">
             <motion.span
               animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.2 }}
-              className="block h-[2px] w-full bg-current origin-center"
+              className="block h-0.5 w-full bg-current origin-center"
             />
             <motion.span
               animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
               transition={{ duration: 0.15 }}
-              className="block h-[2px] w-full bg-current"
+              className="block h-0.5 w-full bg-current"
             />
             <motion.span
               animate={
                 mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }
               }
               transition={{ duration: 0.2 }}
-              className="block h-[2px] w-full bg-current origin-center"
+              className="block h-0.5 w-full bg-current origin-center"
             />
           </div>
         </button>
@@ -139,7 +139,7 @@ export function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[199] bg-white/30 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-199 bg-linear-to-b from-ktf-obsidian/72 to-ktf-navy/64 backdrop-blur-md lg:hidden"
               onClick={closeMobile}
               aria-hidden="true"
             />
@@ -150,7 +150,7 @@ export function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed inset-y-0 right-0 z-[200] w-full max-w-sm bg-ktf-white shadow-2xl lg:hidden"
+              className="fixed inset-y-0 right-0 z-200 w-full max-w-sm bg-ktf-white shadow-2xl lg:hidden"
             >
               <div className="flex h-full flex-col px-6 pt-24 pb-8">
                 <ul className="flex flex-col gap-1" role="list">

@@ -35,9 +35,10 @@ export function InstallPrompt() {
       /iphone|ipad|ipod/i.test(navigator.userAgent) &&
       !(window.navigator as Navigator & { standalone?: boolean }).standalone;
     if (isIOSDevice) {
-      setIsIOS(true);
-      // Show iOS hint after 3 seconds
-      setTimeout(() => setShow(true), 3000);
+      setTimeout(() => {
+        setIsIOS(true);
+        setShow(true);
+      }, 3000);
       return;
     }
 
@@ -78,75 +79,80 @@ export function InstallPrompt() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="fixed bottom-24 left-4 right-4 z-[300] md:left-auto md:right-6 md:w-[360px]"
+          className="fixed bottom-5 left-4 right-4 z-300 md:bottom-6 md:left-auto md:right-6 md:w-96"
           role="dialog"
           aria-label="Install King Tech Foundation app"
         >
-          <div className="bg-ktf-obsidian border border-ktf-blue/20 rounded-2xl shadow-2xl p-5 flex gap-4 items-start">
-            <div className="shrink-0 w-12 h-12 rounded-xl overflow-hidden border border-ktf-gold/30">
-              <Image
-                src="/icons/ktf-logo.png"
-                alt="KTF"
-                width={48}
-                height={48}
-                className="object-cover"
-              />
-            </div>
+          <div className="overflow-hidden rounded-2xl border border-ktf-gray-200 bg-ktf-white/95 shadow-premium backdrop-blur-xl">
+            <div className="h-1 w-full bg-linear-to-r from-ktf-blue via-ktf-blue-deep to-ktf-gold" />
 
-            <div className="flex-1 min-w-0">
-              <p className="text-ktf-white font-semibold text-sm leading-snug">
-                Install King Tech Foundation
-              </p>
-              {isIOS ? (
-                <p className="text-ktf-silver text-xs mt-1 leading-relaxed">
-                  Tap the{" "}
-                  <span className="text-ktf-blue font-medium">Share</span>{" "}
-                  button below, then{" "}
-                  <span className="text-ktf-blue font-medium">
-                    Add to Home Screen
-                  </span>
-                </p>
-              ) : (
-                <p className="text-ktf-silver text-xs mt-1 leading-relaxed">
-                  Add to your home screen for a faster, app-like experience.
-                </p>
-              )}
+            <div className="p-4 sm:p-5">
+              <div className="flex items-start gap-3">
+                <div className="h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-ktf-gray-200 bg-ktf-white">
+                  <Image
+                    src="/icons/ktf-logo.png"
+                    alt="KTF"
+                    width={44}
+                    height={44}
+                    className="object-cover"
+                  />
+                </div>
 
-              {!isIOS && (
-                <div className="flex gap-2 mt-3">
-                  <button
-                    onClick={handleInstall}
-                    className="bg-ktf-blue text-white text-xs font-semibold px-4 py-1.5 rounded-lg hover:bg-ktf-blue/80 transition-colors"
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-semibold text-ktf-navy leading-snug">
+                    Install King Tech Foundation
+                  </p>
+                  <p className="mt-1 text-caption leading-relaxed text-ktf-gray-600">
+                    Keep KTF one tap away for a faster, polished app-like experience.
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleDismiss}
+                  className="mt-0.5 shrink-0 rounded-md p-1 text-ktf-gray-500 transition-colors hover:bg-ktf-surface hover:text-ktf-navy"
+                  aria-label="Dismiss install prompt"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   >
-                    Install
+                    <path d="M12 4L4 12M4 4l8 8" />
+                  </svg>
+                </button>
+              </div>
+
+              {isIOS ? (
+                <div className="mt-4 rounded-xl border border-ktf-gray-200 bg-ktf-surface p-3">
+                  <p className="text-caption leading-relaxed text-ktf-gray-700">
+                    On iPhone or iPad, tap the <span className="font-semibold text-ktf-blue">Share</span> icon,
+                    then choose <span className="font-semibold text-ktf-blue">Add to Home Screen</span>.
+                  </p>
+                </div>
+              ) : (
+                <div className="mt-4 flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handleInstall}
+                    className="inline-flex h-9 items-center justify-center rounded-lg bg-ktf-blue px-4 text-caption font-semibold text-white transition-colors hover:bg-ktf-blue-deep"
+                  >
+                    Install App
                   </button>
                   <button
+                    type="button"
                     onClick={handleDismiss}
-                    className="text-ktf-silver text-xs px-3 py-1.5 rounded-lg hover:text-ktf-white transition-colors"
+                    className="inline-flex h-9 items-center justify-center rounded-lg border border-ktf-gray-200 bg-ktf-white px-4 text-caption font-semibold text-ktf-gray-600 transition-colors hover:bg-ktf-surface hover:text-ktf-navy"
                   >
-                    Not now
+                    Maybe Later
                   </button>
                 </div>
               )}
             </div>
-
-            <button
-              onClick={handleDismiss}
-              className="shrink-0 text-ktf-silver hover:text-ktf-white transition-colors mt-0.5"
-              aria-label="Dismiss install prompt"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              >
-                <path d="M12 4L4 12M4 4l8 8" />
-              </svg>
-            </button>
           </div>
         </motion.div>
       )}

@@ -13,8 +13,8 @@ interface TypingTextProps {
 export function TypingText({
   text,
   className = "",
-  speed = 55,
-  startDelay = 400,
+  speed = 85,
+  startDelay = 600,
   showCursor = true,
 }: TypingTextProps) {
   const [displayed, setDisplayed] = useState("");
@@ -23,27 +23,39 @@ export function TypingText({
   useEffect(() => {
     let i = 0;
     let cancelled = false;
+    let nextTick: ReturnType<typeof setTimeout> | null = null;
+
+    const getDelay = (char: string) => {
+      if (/[.,!?]/.test(char)) return speed * 2;
+      if (/\s/.test(char)) return speed * 0.65;
+      return speed;
+    };
+
+    const typeNext = () => {
+      if (cancelled) return;
+      i += 1;
+      setDisplayed(text.slice(0, i));
+
+      if (i >= text.length) {
+        setDone(true);
+        return;
+      }
+
+      const lastTyped = text[i - 1] ?? "";
+      nextTick = setTimeout(typeNext, getDelay(lastTyped));
+    };
+
     const start = setTimeout(() => {
       if (cancelled) return;
-      // Reset to empty at start of timeout before typing begins
       setDisplayed("");
       setDone(false);
-      const timer = setInterval(() => {
-        if (cancelled) {
-          clearInterval(timer);
-          return;
-        }
-        i += 1;
-        setDisplayed(text.slice(0, i));
-        if (i >= text.length) {
-          clearInterval(timer);
-          setDone(true);
-        }
-      }, speed);
+      typeNext();
     }, startDelay);
+
     return () => {
       cancelled = true;
       clearTimeout(start);
+      if (nextTick) clearTimeout(nextTick);
     };
   }, [text, speed, startDelay]);
 
@@ -53,7 +65,7 @@ export function TypingText({
       {showCursor && (
         <span
           aria-hidden="true"
-          className={`inline-block w-[2px] h-[0.85em] ml-0.5 translate-y-[0.05em] bg-current align-middle ${
+          className={`ml-0.5 inline-block h-[0.85em] w-0.5 translate-y-[0.05em] align-middle bg-current ${
             done ? "animate-blink" : "opacity-100"
           }`}
         />
