@@ -132,13 +132,12 @@ export default function HomePage() {
               View Full Portfolio →
             </Button>
           </div>
+        </Container>
 
-          </Container>
-
-          {/* Full-viewport-width marquee — intentionally outside Container */}
-          <div className="mt-12 pb-10">
-            <ProjectsMarquee />
-          </div>
+        {/* Full-viewport-width marquee — intentionally outside Container */}
+        <div className="mt-12 pb-10">
+          <ProjectsMarquee />
+        </div>
       </section>
       {/* ── Stats Strip ──────────────────────────────────────── */}{" "}
       <section className="bg-ktf-navy py-16">
