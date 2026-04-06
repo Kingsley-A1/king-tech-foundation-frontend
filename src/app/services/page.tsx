@@ -24,8 +24,7 @@ export default function ServicesPage() {
           </Badge>
           <h1 className="text-h1 font-bold leading-heading text-ktf-white max-w-3xl mx-auto mb-4">
             Full-Spectrum{" "}
-            <TypingText text="Engineering" className="text-ktf-blue" />{" "}
-            Services
+            <TypingText text="Engineering" className="text-ktf-blue" /> Services
           </h1>
           <p className="text-body-lg text-ktf-gray-400 leading-body max-w-2xl mx-auto">
             Every service we offer is delivered with the same standard:

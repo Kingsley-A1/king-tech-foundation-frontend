@@ -11,7 +11,7 @@ export function WhatsappFab() {
   if (pathname === "/contact") return null;
 
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    WHATSAPP_INQUIRY_MESSAGE
+    WHATSAPP_INQUIRY_MESSAGE,
   )}`;
 
   return (

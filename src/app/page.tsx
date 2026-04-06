@@ -57,9 +57,9 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="mt-6 text-body-lg leading-body text-ktf-gray-400 max-w-xl mx-auto">
-            King Tech Foundation builds production-grade digital products —
-            web, mobile, cloud, and AI — delivered with relentless craftsmanship
-            and a 3–4 week turnaround.
+            King Tech Foundation builds production-grade digital products — web,
+            mobile, cloud, and AI — delivered with relentless craftsmanship and
+            a 3–4 week turnaround.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Button size="lg" href="/contact">
@@ -76,7 +76,6 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-
       {/* ── Accomplished Works ───────────────────────────────── */}
       <section className="relative overflow-hidden bg-ktf-obsidian py-24 sm:py-32">
         {/* Dot grid */}
@@ -130,8 +129,8 @@ export default function HomePage() {
           <ProjectsMarquee />
         </Container>
       </section>
-
-      {/* ── Stats Strip ──────────────────────────────────────── */}      <section className="bg-ktf-navy py-16">
+      {/* ── Stats Strip ──────────────────────────────────────── */}{" "}
+      <section className="bg-ktf-navy py-16">
         <Container size="lg">
           <dl className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {STATS.map((stat) => (
@@ -147,7 +146,6 @@ export default function HomePage() {
           </dl>
         </Container>
       </section>
-
       {/* ── Services Overview ─────────────────────────────────── */}
       <section className="bg-ktf-white py-24 sm:py-32">
         <Container size="lg">
@@ -201,7 +199,6 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-
       {/* ── Why KTF ──────────────────────────────────────────── */}
       <section className="bg-ktf-surface py-24 sm:py-32">
         <Container size="lg">
@@ -239,7 +236,6 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-
       {/* ── Partners ─────────────────────────────────────────── */}
       <section className="bg-ktf-white py-20">
         <Container size="lg">
@@ -258,7 +254,6 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-
       {/* ── Testimonials ─────────────────────────────────────── */}
       <section className="bg-ktf-surface py-24 sm:py-32">
         <Container size="lg">
@@ -312,7 +307,6 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section className="bg-ktf-navy py-24 sm:py-32">
         <Container size="md" className="text-center">

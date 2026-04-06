@@ -23,8 +23,7 @@ export default function AboutPage() {
             Our Foundation
           </Badge>
           <h1 className="text-h1 font-bold leading-heading text-ktf-white max-w-3xl mx-auto mb-4">
-            Who{" "}
-            <TypingText text="We Are" className="text-ktf-blue" />
+            Who <TypingText text="We Are" className="text-ktf-blue" />
           </h1>
           <p className="text-body-lg text-ktf-gray-400 leading-body max-w-2xl mx-auto">
             King Tech Foundation was built on a simple conviction: that great

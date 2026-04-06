@@ -26,7 +26,17 @@ const TYPE_META: Record<ProjectType, TypeMeta> = {
     textClass: "text-ktf-blue",
     borderClass: "border-ktf-blue/30",
     icon: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <circle cx="12" cy="12" r="10" />
         <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" />
       </svg>
@@ -39,7 +49,17 @@ const TYPE_META: Record<ProjectType, TypeMeta> = {
     textClass: "text-purple-400",
     borderClass: "border-purple-400/30",
     icon: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
         <circle cx="12" cy="18" r="1" />
       </svg>
@@ -52,7 +72,17 @@ const TYPE_META: Record<ProjectType, TypeMeta> = {
     textClass: "text-slate-400",
     borderClass: "border-slate-400/30",
     icon: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
         <line x1="9" y1="7" x2="15" y2="7" />
         <circle cx="12" cy="18" r="1" />
@@ -66,7 +96,17 @@ const TYPE_META: Record<ProjectType, TypeMeta> = {
     textClass: "text-orange-400",
     borderClass: "border-orange-400/30",
     icon: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <rect x="2" y="3" width="20" height="14" rx="2" />
         <line x1="8" y1="21" x2="16" y2="21" />
         <line x1="12" y1="17" x2="12" y2="21" />
@@ -80,7 +120,17 @@ const TYPE_META: Record<ProjectType, TypeMeta> = {
     textClass: "text-teal-400",
     borderClass: "border-teal-400/30",
     icon: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <rect x="2" y="7" width="10" height="14" rx="1" />
         <rect x="14" y="3" width="8" height="18" rx="1" />
       </svg>
@@ -149,7 +199,9 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
             {meta.icon}
             {meta.badge}
           </span>
-          <span className="text-caption text-ktf-gray-500">{project.category}</span>
+          <span className="text-caption text-ktf-gray-500">
+            {project.category}
+          </span>
         </div>
 
         <h3 className="text-body-lg font-bold text-ktf-navy mb-2 leading-snug">
@@ -180,7 +232,17 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-ktf-blue px-5 py-2.5 text-body-sm font-semibold text-white transition-colors duration-150 hover:bg-ktf-blue-deep active:bg-ktf-blue-pressed"
           >
             View Live Project
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
               <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
               <polyline points="15 3 21 3 21 9" />
               <line x1="10" y1="14" x2="21" y2="3" />
@@ -203,10 +265,8 @@ export function ProjectsGrid() {
 
   const filtered = useMemo(
     () =>
-      active === "all"
-        ? PROJECTS
-        : PROJECTS.filter((p) => p.type === active),
-    [active]
+      active === "all" ? PROJECTS : PROJECTS.filter((p) => p.type === active),
+    [active],
   );
 
   return (
@@ -262,7 +322,8 @@ export function ProjectsGrid() {
         project{filtered.length !== 1 ? "s" : ""}
         {active !== "all" && (
           <>
-            {" "}in{" "}
+            {" "}
+            in{" "}
             <span className="font-semibold text-ktf-navy">
               {FILTERS.find((f) => f.id === active)?.label}
             </span>
@@ -291,7 +352,8 @@ export function ProjectsGrid() {
         >
           <p className="text-h3 mb-2">No projects found</p>
           <p className="text-body text-ktf-gray-500">
-            We don&apos;t have any {active} projects listed yet — check back soon.
+            We don&apos;t have any {active} projects listed yet — check back
+            soon.
           </p>
         </motion.div>
       )}

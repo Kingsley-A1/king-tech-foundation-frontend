@@ -31,9 +31,7 @@ export const metadata: Metadata = {
   ),
   manifest: "/manifest.webmanifest",
   icons: {
-    icon: [
-      { url: "/icons/ktf-logo.png", sizes: "192x192", type: "image/png" },
-    ],
+    icon: [{ url: "/icons/ktf-logo.png", sizes: "192x192", type: "image/png" }],
     apple: [
       { url: "/icons/ktf-logo-main.png", sizes: "512x512", type: "image/png" },
     ],

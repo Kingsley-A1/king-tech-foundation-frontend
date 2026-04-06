@@ -29,7 +29,10 @@ export function TypingText({
       setDisplayed("");
       setDone(false);
       const timer = setInterval(() => {
-        if (cancelled) { clearInterval(timer); return; }
+        if (cancelled) {
+          clearInterval(timer);
+          return;
+        }
         i += 1;
         setDisplayed(text.slice(0, i));
         if (i >= text.length) {

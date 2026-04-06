@@ -23,8 +23,7 @@ export default function PartnershipsPage() {
             Partnerships
           </Badge>
           <h1 className="text-h1 font-bold leading-heading text-ktf-white max-w-3xl mx-auto mb-4">
-            Build the{" "}
-            <TypingText text="Ecosystem" className="text-ktf-blue" />{" "}
+            Build the <TypingText text="Ecosystem" className="text-ktf-blue" />{" "}
             Together
           </h1>
           <p className="text-body-lg text-ktf-gray-400 leading-body max-w-2xl mx-auto">

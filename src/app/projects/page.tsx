@@ -67,7 +67,10 @@ export default function ProjectsPage() {
             </Badge>
             <h1 className="text-display font-bold leading-heading text-ktf-white mb-6">
               Built With Precision.{" "}
-              <TypingText text="Deployed With Purpose." className="text-ktf-blue" />
+              <TypingText
+                text="Deployed With Purpose."
+                className="text-ktf-blue"
+              />
             </h1>
             <p className="text-body-lg text-ktf-gray-400 leading-body max-w-2xl">
               Every project here is a testament to our commitment to engineering

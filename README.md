@@ -16,15 +16,15 @@ The official marketing website for King Tech Foundation (KTF), built with Next.j
 
 ## Pages
 
-| Route | Description |
-|-------|-------------|
-| `/` | Homepage — Hero, Stats, Services, Values, Partners, Testimonials, CTA |
-| `/services` | Full services breakdown with features and tech stack |
-| `/about` | Mission, team story, values grid |
-| `/partnerships` | Partnership tiers and current partners |
-| `/reviews` | Client testimonials and ratings |
-| `/contact` | Contact form with validation |
-| `/design-system` | KTF design token reference |
+| Route            | Description                                                           |
+| ---------------- | --------------------------------------------------------------------- |
+| `/`              | Homepage — Hero, Stats, Services, Values, Partners, Testimonials, CTA |
+| `/services`      | Full services breakdown with features and tech stack                  |
+| `/about`         | Mission, team story, values grid                                      |
+| `/partnerships`  | Partnership tiers and current partners                                |
+| `/reviews`       | Client testimonials and ratings                                       |
+| `/contact`       | Contact form with validation                                          |
+| `/design-system` | KTF design token reference                                            |
 
 ## Getting Started
 
@@ -43,10 +43,10 @@ Copy `.env.example` to `.env.local`:
 cp .env.example .env.local
 ```
 
-| Variable | Description |
-|----------|-------------|
+| Variable               | Description                |
+| ---------------------- | -------------------------- |
 | `NEXT_PUBLIC_SITE_URL` | Public URL of the frontend |
-| `NEXT_PUBLIC_API_URL` | Backend API URL (Railway) |
+| `NEXT_PUBLIC_API_URL`  | Backend API URL (Railway)  |
 
 ## Build
 
