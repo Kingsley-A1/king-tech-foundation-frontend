@@ -1,4 +1,5 @@
 import { Button, Badge } from "@/components/ui";
+import { TypingText } from "@/components/ui/typing-text";
 import { Container } from "@/components/layout";
 import { PARTNERS, PARTNERSHIP_TIERS } from "@/lib/constants";
 import type { Metadata } from "next";
@@ -13,7 +14,7 @@ export default function PartnershipsPage() {
   return (
     <>
       {/* ── Page Hero ─────────────────────────────────────────── */}
-      <section className="bg-ktf-navy py-24 sm:py-32">
+      <section className="bg-ktf-navy py-16 sm:py-20">
         <Container size="lg" className="text-center">
           <Badge
             variant="outline"
@@ -22,7 +23,9 @@ export default function PartnershipsPage() {
             Partnerships
           </Badge>
           <h1 className="text-h1 font-bold leading-heading text-ktf-white max-w-3xl mx-auto mb-4">
-            Build the Ecosystem Together
+            Build the{" "}
+            <TypingText text="Ecosystem" className="text-ktf-blue" />{" "}
+            Together
           </h1>
           <p className="text-body-lg text-ktf-gray-400 leading-body max-w-2xl mx-auto">
             We believe in the power of strong partnerships. Together, we can

@@ -1,13 +1,12 @@
 import { Button, Badge } from "@/components/ui";
 import { Container } from "@/components/layout";
-import Image from "next/image";
+import { ProjectsMarquee } from "@/components/marketing/projects-marquee";
 import {
   STATS,
   SERVICES,
   VALUES,
   TESTIMONIALS,
   PARTNERS,
-  PROJECTS,
 } from "@/lib/constants";
 import type { Metadata } from "next";
 
@@ -50,19 +49,17 @@ export default function HomePage() {
             For Honour and For Excellence
           </Badge>
           <h1 className="text-h1 sm:text-display font-bold leading-display tracking-tight text-ktf-white max-w-4xl mx-auto">
-            Engineering Solutions for This,{" "}
-            <span className="whitespace-nowrap">
-              and{" "}
-              <span className="text-ktf-blue">
-                The Next Generation
-                <span className="animate-blink text-white font-light">_</span>
-              </span>
+            <span className="block">Engineering The Solutions</span>
+            <span className="block">For This, and</span>
+            <span className="block text-ktf-blue">
+              The Next Generation
+              <span className="animate-blink text-white font-light">_</span>
             </span>
           </h1>
-          <p className="mt-6 text-body-lg leading-body text-ktf-gray-400 max-w-2xl mx-auto">
-            King Tech Foundation builds production-grade digital products — web
-            applications, mobile experiences, cloud infrastructure, and AI
-            systems — with relentless precision and craftsmanship.
+          <p className="mt-6 text-body-lg leading-body text-ktf-gray-400 max-w-xl mx-auto">
+            King Tech Foundation builds production-grade digital products —
+            web, mobile, cloud, and AI — delivered with relentless craftsmanship
+            and a 3–4 week turnaround.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Button size="lg" href="/contact">
@@ -129,93 +126,12 @@ export default function HomePage() {
             </Button>
           </div>
 
-          {/* Featured project grid */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {PROJECTS.filter((p) => p.featured).map((project, i) => (
-              <a
-                key={project.id}
-                href={
-                  project.comingSoon
-                    ? "/projects"
-                    : project.liveUrl ?? "/projects"
-                }
-                target={project.comingSoon ? undefined : "_blank"}
-                rel={project.comingSoon ? undefined : "noopener noreferrer"}
-                className={[
-                  "group relative overflow-hidden rounded-2xl bg-ktf-charcoal",
-                  i === 0
-                    ? "sm:col-span-2 lg:col-span-2 aspect-[16/9]"
-                    : "aspect-[4/3]",
-                ].join(" ")}
-              >
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  sizes={
-                    i === 0
-                      ? "(max-width: 640px) 100vw, (max-width:1024px) 66vw, 66vw"
-                      : "(max-width: 640px) 100vw, 33vw"
-                  }
-                />
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-ktf-obsidian/90 via-ktf-obsidian/30 to-transparent transition-opacity duration-300 group-hover:from-ktf-obsidian/80" />
-                {/* Content overlay */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="rounded-full bg-ktf-white/10 px-2.5 py-0.5 text-caption font-medium text-ktf-white backdrop-blur-sm">
-                      {project.category}
-                    </span>
-                    {project.comingSoon ? (
-                      <span className="rounded-full bg-ktf-warning/20 px-2.5 py-0.5 text-caption font-medium text-ktf-warning">
-                        Coming Soon
-                      </span>
-                    ) : (
-                      <span className="rounded-full bg-ktf-success/20 px-2.5 py-0.5 text-caption font-semibold text-ktf-success">
-                        ● Live
-                      </span>
-                    )}
-                  </div>
-                  <h3
-                    className={[
-                      "font-bold text-ktf-white leading-tight",
-                      i === 0 ? "text-h3" : "text-h5",
-                    ].join(" ")}
-                  >
-                    {project.name}
-                  </h3>
-                  {i === 0 && (
-                    <p className="mt-2 text-body-sm text-ktf-gray-300 leading-body line-clamp-2">
-                      {project.description}
-                    </p>
-                  )}
-                </div>
-              </a>
-            ))}
-          </div>
-
-          {/* Bottom stat strip */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-12 gap-y-4 border-t border-ktf-white/10 pt-10">
-            {[
-              { value: "11+", label: "Projects Shipped" },
-              { value: "100%", label: "Client Satisfaction" },
-              { value: "4+", label: "Years Building" },
-            ].map((s) => (
-              <div key={s.label} className="text-center">
-                <p className="text-h3 font-bold text-ktf-blue leading-none">
-                  {s.value}
-                </p>
-                <p className="mt-1 text-body-sm text-ktf-gray-400 font-medium">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
+          {/* Featured projects marquee */}
+          <ProjectsMarquee />
         </Container>
       </section>
 
-      {/* ── Stats Strip ──────────────────────────────────────── */}      <section className="bg-ktf-obsidian py-16">
+      {/* ── Stats Strip ──────────────────────────────────────── */}      <section className="bg-ktf-navy py-16">
         <Container size="lg">
           <dl className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {STATS.map((stat) => (

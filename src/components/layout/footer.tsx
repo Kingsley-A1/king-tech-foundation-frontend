@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SITE_NAME } from "@/lib/constants";
 import { NewsletterForm } from "./newsletter-form";
 
@@ -26,7 +27,14 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="inline-block">
+            <Link href="/" className="inline-flex items-center gap-3">
+              <Image
+                src="/icons/ktf-logo.png"
+                alt="KTF logo"
+                width={40}
+                height={40}
+                className="rounded-xl object-contain"
+              />
               <span className="text-lg font-bold tracking-tight">
                 <span className="text-ktf-blue">KING TECH</span>{" "}
                 <span className="text-white">FOUNDATION</span>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Badge } from "@/components/ui";
+import { TypingText } from "@/components/ui/typing-text";
 import { Container } from "@/components/layout";
 import { ProjectsGrid } from "@/components/marketing/projects-grid";
 import { PROJECTS } from "@/lib/constants";
@@ -35,7 +36,7 @@ export default function ProjectsPage() {
   return (
     <>
       {/* ── Page Hero ─────────────────────────────────────────── */}
-      <section className="relative bg-ktf-obsidian overflow-hidden py-24 sm:py-32">
+      <section className="relative bg-ktf-obsidian overflow-hidden py-16 sm:py-20">
         {/* Dot grid */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.035]"
@@ -66,7 +67,7 @@ export default function ProjectsPage() {
             </Badge>
             <h1 className="text-display font-bold leading-heading text-ktf-white mb-6">
               Built With Precision.{" "}
-              <span className="text-ktf-blue">Deployed With Purpose.</span>
+              <TypingText text="Deployed With Purpose." className="text-ktf-blue" />
             </h1>
             <p className="text-body-lg text-ktf-gray-400 leading-body max-w-2xl">
               Every project here is a testament to our commitment to engineering

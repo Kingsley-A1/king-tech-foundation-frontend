@@ -32,9 +32,9 @@ export function Header() {
           <Image
             src="/icons/ktf-logo.png"
             alt="KTF logo"
-            width={32}
-            height={32}
-            className="rounded-lg object-contain"
+            width={44}
+            height={44}
+            className="rounded-xl object-contain"
             priority
           />
           <span className="text-ktf-blue">KING</span>
@@ -78,6 +78,18 @@ export function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-3">
+          <Link
+            href="/terms"
+            className="text-sm text-ktf-gray-500 transition-colors hover:text-ktf-obsidian"
+          >
+            Terms
+          </Link>
+          <Link
+            href="/privacy"
+            className="text-sm text-ktf-gray-500 transition-colors hover:text-ktf-obsidian"
+          >
+            Privacy
+          </Link>
           <Link
             href="/contact"
             className="inline-flex h-10 items-center justify-center rounded-lg bg-ktf-blue px-5 text-sm font-medium text-white transition-colors duration-150 hover:bg-ktf-blue-deep active:bg-ktf-blue-pressed"
@@ -127,7 +139,7 @@ export function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[199] bg-ktf-obsidian/60 backdrop-blur-md lg:hidden"
+              className="fixed inset-0 z-[199] bg-white/30 backdrop-blur-sm lg:hidden"
               onClick={closeMobile}
               aria-hidden="true"
             />
@@ -170,6 +182,22 @@ export function Header() {
                 </ul>
 
                 <div className="mt-auto pt-6 border-t border-ktf-gray-200">
+                  <div className="flex items-center justify-center gap-6 mb-4">
+                    <Link
+                      href="/terms"
+                      onClick={closeMobile}
+                      className="text-sm text-ktf-gray-500 hover:text-ktf-blue transition-colors"
+                    >
+                      Terms
+                    </Link>
+                    <Link
+                      href="/privacy"
+                      onClick={closeMobile}
+                      className="text-sm text-ktf-gray-500 hover:text-ktf-blue transition-colors"
+                    >
+                      Privacy
+                    </Link>
+                  </div>
                   <Link
                     href="/contact"
                     onClick={closeMobile}

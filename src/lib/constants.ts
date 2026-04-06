@@ -30,8 +30,8 @@ export const NAV_LINKS = [
 // ── Stats ──────────────────────────────────────────────────────────────────
 
 export const STATS = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "30+", label: "Global Clients" },
+  { value: "11+", label: "Projects Delivered" },
+  { value: "3–4 Wks", label: "Est. Delivery" },
   { value: "4+", label: "Years of Excellence" },
   { value: "99%", label: "Client Satisfaction" },
 ] as const;
