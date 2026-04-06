@@ -31,7 +31,7 @@ export function Card({
         paddingMap[padding],
         variant === "default" && [
           "border-ktf-gray-200 bg-white",
-          "shadow-[0_1px_3px_rgba(11,31,58,0.06),0_1px_2px_rgba(11,31,58,0.04)]",
+          "shadow-card",
           "hover:shadow-[0_8px_25px_-5px_rgba(10,132,255,0.12),0_4px_10px_-4px_rgba(11,31,58,0.06)]",
         ],
         variant === "premium" && [

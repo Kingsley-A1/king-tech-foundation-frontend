@@ -60,7 +60,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
     return (
       <AnimatePresence>
         {open && (
-          <div className="fixed inset-0 z-[300]" aria-hidden={!open}>
+          <div className="fixed inset-0 z-300" aria-hidden={!open}>
             {/* Backdrop */}
             <motion.div
               ref={overlayRef}

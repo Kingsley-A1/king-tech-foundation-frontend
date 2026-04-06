@@ -25,7 +25,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           id={textareaId}
           className={cn(
-            "min-h-[100px] w-full rounded-lg border bg-white px-3 py-2.5 text-sm text-ktf-obsidian placeholder:text-ktf-gray-500 transition-colors duration-150 resize-y",
+            "min-h-25 w-full rounded-lg border bg-white px-3 py-2.5 text-sm text-ktf-obsidian placeholder:text-ktf-gray-500 transition-colors duration-150 resize-y",
             "focus:outline-none focus:ring-2 focus:ring-ktf-blue/30 focus:border-ktf-blue",
             "disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-ktf-gray-100",
             error

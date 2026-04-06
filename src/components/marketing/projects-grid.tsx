@@ -301,7 +301,7 @@ export function ProjectsGrid() {
               >
                 {f.label}
                 <span
-                  className={`rounded-full px-1.5 py-0.5 text-[11px] font-bold leading-none ${
+                  className={`rounded-full px-1.5 py-0.5 text-overline font-bold leading-none ${
                     isActive
                       ? "bg-white/20 text-white"
                       : "bg-ktf-gray-200 text-ktf-gray-500"

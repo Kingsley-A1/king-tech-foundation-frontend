@@ -138,7 +138,7 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} noValidate aria-label="Contact form">
       {/* Honeypot field — visually hidden from real users */}
-      <div className="absolute -left-[9999px] -top-[9999px]" aria-hidden="true">
+      <div className="absolute -left-2499.75 -top-2499.75" aria-hidden="true">
         <label htmlFor="website">Leave this field empty</label>
         <input
           type="text"

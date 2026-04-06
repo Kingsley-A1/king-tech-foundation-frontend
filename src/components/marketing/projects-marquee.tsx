@@ -11,7 +11,7 @@ function ProjectCard({ project }: { project: Project }) {
 
   const card = (
     <article
-      className={`group relative w-72 shrink-0 snap-start overflow-hidden rounded-2xl border border-ktf-white/15 bg-linear-to-b from-ktf-navy/70 to-ktf-obsidian/95 shadow-card sm:w-80 ${
+      className={`group relative w-72 shrink-0 overflow-hidden rounded-2xl border border-ktf-white/15 bg-linear-to-b from-ktf-navy/70 to-ktf-obsidian/95 shadow-card sm:w-80 ${
         isDisabled
           ? "cursor-not-allowed opacity-90"
           : "transition-transform duration-300 hover:-translate-y-1 hover:shadow-card-hover"
@@ -192,7 +192,7 @@ export function ProjectsMarquee() {
 
   return (
     <div
-      className="rounded-3xl border border-ktf-white/10 bg-ktf-navy/30 p-2 sm:p-3"
+      className="relative overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => {
         setIsPaused(false);
@@ -201,7 +201,7 @@ export function ProjectsMarquee() {
     >
       <div
         ref={trackRef}
-        className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 py-2 cursor-grab active:cursor-grabbing sm:gap-5 sm:px-2"
+        className="flex gap-4 overflow-x-auto cursor-grab active:cursor-grabbing sm:gap-5"
         style={
           {
             scrollbarWidth: "none",
