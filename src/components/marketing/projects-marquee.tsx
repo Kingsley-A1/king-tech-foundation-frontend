@@ -192,7 +192,7 @@ export function ProjectsMarquee() {
 
   return (
     <div
-      className="relative overflow-hidden"
+      className="relative overflow-hidden py-2"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => {
         setIsPaused(false);
