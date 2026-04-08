@@ -103,7 +103,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <div>
               <p className="text-overline font-bold uppercase tracking-[0.2em] mb-3 text-ktf-blue">
-                Our Portfolio
+                Our Projects
               </p>
               <h2 className="text-h2 sm:text-h1 font-bold leading-display text-ktf-navy">
                 Accomplished
@@ -120,7 +120,7 @@ export default function HomePage() {
               variant="outline"
               className="border-ktf-blue/30 text-ktf-blue hover:bg-ktf-blue/10 hover:border-ktf-blue/50 shrink-0"
             >
-              View Full Portfolio →
+              View Full Projects →
             </Button>
           </div>
         </Container>
