@@ -11,15 +11,14 @@ function ProjectCard({ project }: { project: Project }) {
 
   const card = (
     <article
-      className={`group relative overflow-hidden rounded-2xl border border-ktf-white/15 bg-linear-to-b from-ktf-navy/70 to-ktf-obsidian/95 shadow-card ${
+      className={`group flex aspect-[3/4] flex-col overflow-hidden rounded-2xl border border-ktf-white/15 bg-linear-to-b from-ktf-navy/70 to-ktf-obsidian/95 shadow-card ${
         isDisabled
           ? "opacity-90"
           : "transition-transform duration-300 hover:-translate-y-1 hover:shadow-card-hover"
       }`}
     >
-      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-ktf-blue/70 to-ktf-gold/70" />
-
-      <div className="relative aspect-video w-full overflow-hidden bg-ktf-navy/40">
+      {/* Image — exactly half the card height */}
+      <div className="relative h-1/2 w-full flex-none overflow-hidden bg-ktf-navy/40">
         <Image
           src={project.image}
           alt={project.name}
@@ -31,42 +30,45 @@ function ProjectCard({ project }: { project: Project }) {
         />
       </div>
 
-      <div className="space-y-3 p-5">
-        <div className="flex items-center justify-between gap-2">
-          <span className="rounded-md border border-ktf-white/20 bg-ktf-white/10 px-2 py-0.5 text-caption font-medium text-ktf-white/85">
-            {project.category}
-          </span>
-          {isDisabled ? (
-            <span className="inline-flex items-center gap-1 rounded-full border border-ktf-gold/35 bg-ktf-gold/12 px-2.5 py-0.5 text-caption font-semibold text-ktf-gold">
-              In Development
-            </span>
-          ) : (
-            <span className="inline-flex items-center gap-1 rounded-full border border-ktf-success/35 bg-ktf-success/15 px-2.5 py-0.5 text-caption font-semibold text-ktf-success">
-              <span className="h-1.5 w-1.5 rounded-full bg-ktf-success" />
-              Live
-            </span>
-          )}
-        </div>
+      {/* Content — remaining half */}
+      <div className="flex flex-1 flex-col gap-2 overflow-hidden p-3 sm:p-4">
+        {/* Category pill */}
+        <span className="inline-block self-start whitespace-nowrap rounded-full border border-ktf-blue/30 bg-ktf-blue/10 px-2.5 py-0.5 text-[10px] font-semibold leading-tight text-ktf-blue">
+          {project.category}
+        </span>
 
-        <h3 className="text-body font-bold leading-snug text-ktf-white">
+        {/* Status badge */}
+        {isDisabled ? (
+          <span className="inline-flex items-center gap-1 self-start whitespace-nowrap rounded-full border border-ktf-gold/35 bg-ktf-gold/12 px-2 py-0.5 text-[10px] font-semibold leading-tight text-ktf-gold">
+            In Development
+          </span>
+        ) : (
+          <span className="inline-flex items-center gap-1 self-start whitespace-nowrap rounded-full border border-ktf-success/35 bg-ktf-success/15 px-2 py-0.5 text-[10px] font-semibold leading-tight text-ktf-success">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-ktf-success" />
+            Live
+          </span>
+        )}
+
+        {/* Title */}
+        <h3 className="truncate text-sm font-bold leading-snug text-ktf-white">
           {project.name}
         </h3>
 
-        <p className="line-clamp-2 text-caption leading-relaxed text-ktf-gray-400">
+        {/* Description */}
+        <p className="line-clamp-2 flex-1 text-[11px] leading-relaxed text-ktf-gray-400">
           {project.description}
         </p>
 
-        {isDisabled && (
-          <p className="text-caption font-medium text-ktf-gold/80">
-            This project is currently being engineered.
-          </p>
-        )}
-
-        {!isDisabled && (
-          <p className="text-caption font-medium text-ktf-blue transition-colors duration-200 group-hover:text-ktf-white">
-            Explore project &rarr;
-          </p>
-        )}
+        {/* CTA */}
+        <p
+          className={`text-[10px] font-semibold transition-colors duration-200 ${
+            isDisabled
+              ? "text-ktf-gold/80"
+              : "text-ktf-blue group-hover:text-ktf-white"
+          }`}
+        >
+          {isDisabled ? "In engineering" : "Explore project \u2192"}
+        </p>
       </div>
     </article>
   );
@@ -98,7 +100,7 @@ function ProjectCard({ project }: { project: Project }) {
 export function ProjectsMarquee() {
   return (
     <div className="space-y-10">
-      <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
         {SHOWCASE_PROJECTS.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
@@ -108,9 +110,9 @@ export function ProjectsMarquee() {
         <Button
           href="/projects"
           variant="outline"
-          className="border-ktf-white/20 text-ktf-white hover:bg-ktf-white/10 hover:border-ktf-white/40"
+          className="border-ktf-blue/30 text-ktf-blue hover:bg-ktf-blue/10 hover:border-ktf-blue/50"
         >
-          See More Projects &rarr;
+          See More Projects →
         </Button>
       </div>
     </div>

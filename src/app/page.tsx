@@ -86,25 +86,15 @@ export default function HomePage() {
         </Container>
       </section>
       {/* ── Accomplished Works ───────────────────────────────── */}
-      <section className="relative overflow-hidden bg-ktf-obsidian py-24 sm:py-32">
-        {/* Dot grid */}
+      <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+        {/* Blue dot grid */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.035]"
+          className="pointer-events-none absolute inset-0 opacity-[0.07]"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        {/* Top gold accent line */}
-        <div
-          aria-hidden="true"
-          className="absolute top-0 inset-x-0 h-px"
-          style={{
-            background:
-              "linear-gradient(to right, transparent, #f5a524 30%, #f5a524 70%, transparent)",
-            opacity: 0.5,
+              "radial-gradient(circle at 1px 1px, #0a84ff 1px, transparent 0)",
+            backgroundSize: "32px 32px",
           }}
         />
 
@@ -112,15 +102,15 @@ export default function HomePage() {
           {/* Section header */}
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <div>
-              <p className="text-overline font-bold uppercase tracking-[0.2em] mb-3 text-ktf-warning">
+              <p className="text-overline font-bold uppercase tracking-[0.2em] mb-3 text-ktf-blue">
                 Our Portfolio
               </p>
-              <h2 className="text-h2 sm:text-h1 font-bold leading-display text-ktf-white">
+              <h2 className="text-h2 sm:text-h1 font-bold leading-display text-ktf-navy">
                 Accomplished
                 <br />
                 <span className="text-ktf-blue">Works.</span>
               </h2>
-              <p className="mt-4 text-body-lg text-ktf-gray-400 leading-body max-w-md">
+              <p className="mt-4 text-body-lg text-ktf-gray-600 leading-body max-w-md">
                 Products shipped. Startups launched. Problems solved. This is
                 what engineering excellence looks like.
               </p>
@@ -128,7 +118,7 @@ export default function HomePage() {
             <Button
               href="/projects"
               variant="outline"
-              className="border-ktf-white/20 text-ktf-white hover:bg-ktf-white/10 hover:border-ktf-white/40 shrink-0"
+              className="border-ktf-blue/30 text-ktf-blue hover:bg-ktf-blue/10 hover:border-ktf-blue/50 shrink-0"
             >
               View Full Portfolio →
             </Button>
