@@ -204,9 +204,10 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
           </span>
         </div>
 
-        <h3 className="text-body-lg font-bold text-ktf-navy mb-2 leading-snug">
+        <h3 className="text-body-lg font-bold text-ktf-navy mb-3 leading-snug">
           {project.name}
         </h3>
+        <div className="h-px w-full bg-ktf-blue/25 mb-3" aria-hidden="true" />
         <p className="text-body-sm text-ktf-gray-600 leading-body line-clamp-3 flex-1">
           {project.description}
         </p>

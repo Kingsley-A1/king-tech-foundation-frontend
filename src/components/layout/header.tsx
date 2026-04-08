@@ -18,7 +18,8 @@ export function Header() {
   const closeMobile = () => setMobileOpen(false);
 
   return (
-    <header className="sticky top-0 z-100 border-b border-ktf-gray-200 bg-ktf-white/80 backdrop-blur-xl supports-backdrop-filter:bg-ktf-white/60">
+    <>
+    <header className="sticky top-0 z-[100] border-b border-ktf-gray-200 bg-ktf-white/80 backdrop-blur-xl supports-backdrop-filter:bg-ktf-white/60">
       <nav
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
         aria-label="Main navigation"
@@ -102,7 +103,7 @@ export function Header() {
         <button
           type="button"
           onClick={toggleMobile}
-          className="lg:hidden relative z-201 flex h-10 w-10 items-center justify-center rounded-lg text-ktf-gray-700 transition-colors hover:bg-ktf-surface"
+          className="lg:hidden relative z-[10000] flex h-10 w-10 items-center justify-center rounded-lg text-ktf-gray-700 transition-colors hover:bg-ktf-surface"
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -128,89 +129,140 @@ export function Header() {
           </div>
         </button>
       </nav>
+    </header>
 
-      {/* Mobile Navigation Overlay */}
+      {/* ── Mobile Navigation Overlay ─────────────────────────
+          Rendered OUTSIDE <header> so the sticky z-100 stacking
+          context does not clip the fixed panel over the page.     */}
       <AnimatePresence>
         {mobileOpen && !isDesktop && (
           <>
-            {/* Backdrop */}
+            {/* Frosted backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-199 bg-linear-to-b from-ktf-obsidian/72 to-ktf-navy/64 backdrop-blur-md lg:hidden"
+              transition={{ duration: 0.22 }}
+              className="fixed inset-0 z-[9998] bg-ktf-obsidian/60 backdrop-blur-sm lg:hidden"
               onClick={closeMobile}
               aria-hidden="true"
             />
-            {/* Panel */}
+
+            {/* Sidebar Panel */}
             <motion.div
               id="mobile-nav"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Navigation menu"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed inset-y-0 right-0 z-200 w-full max-w-sm bg-ktf-white shadow-2xl lg:hidden"
+              transition={{ type: "spring", stiffness: 320, damping: 32 }}
+              className="fixed inset-y-0 right-0 z-[9999] flex w-4/5 max-w-xs flex-col border-l border-ktf-blue/20 bg-ktf-white shadow-[0_0_80px_rgba(0,0,0,0.35)] lg:hidden"
             >
-              <div className="flex h-full flex-col px-6 pt-24 pb-8">
+              {/* Panel header — aligns with main navbar height */}
+              <div className="flex h-16 shrink-0 items-center border-b border-ktf-gray-100 px-5">
+                <Link
+                  href="/"
+                  onClick={closeMobile}
+                  className="flex items-center gap-2.5"
+                  aria-label="King Tech Foundation home"
+                >
+                  <Image
+                    src="/icons/ktf-logo.png"
+                    alt="KTF logo"
+                    width={36}
+                    height={36}
+                    className="rounded-lg object-contain"
+                  />
+                  <div className="flex flex-col leading-none">
+                    <span className="text-[11px] font-extrabold tracking-[0.15em] text-ktf-blue uppercase">
+                      King Tech
+                    </span>
+                    <span className="text-[11px] font-extrabold tracking-[0.15em] text-ktf-obsidian uppercase">
+                      Foundation
+                    </span>
+                  </div>
+                </Link>
+              </div>
+
+              {/* Nav Links */}
+              <nav className="flex-1 overflow-y-auto px-4 py-5">
                 <ul className="flex flex-col gap-1" role="list">
                   {NAV_LINKS.map((link, i) => {
                     const isActive = pathname === link.href;
                     return (
                       <motion.li
                         key={link.href}
-                        initial={{ opacity: 0, x: 20 }}
+                        initial={{ opacity: 0, x: 16 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.05 * i, duration: 0.2 }}
+                        transition={{ delay: 0.04 * i, duration: 0.18 }}
                       >
                         <Link
                           href={link.href}
                           onClick={closeMobile}
                           className={cn(
-                            "flex items-center rounded-lg px-4 py-3 text-base font-medium transition-colors",
+                            "flex items-center justify-between rounded-xl px-4 py-3.5 text-[15px] font-semibold transition-all duration-150",
                             isActive
-                              ? "bg-ktf-blue/8 text-ktf-blue"
-                              : "text-ktf-gray-800 hover:bg-ktf-surface hover:text-ktf-obsidian",
+                              ? "bg-ktf-blue text-white shadow-sm"
+                              : "text-ktf-navy hover:text-ktf-blue hover:bg-ktf-blue/8",
                           )}
                           aria-current={isActive ? "page" : undefined}
                         >
                           {link.label}
+                          {isActive && (
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              aria-hidden="true"
+                            >
+                              <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                          )}
                         </Link>
                       </motion.li>
                     );
                   })}
                 </ul>
+              </nav>
 
-                <div className="mt-auto pt-6 border-t border-ktf-gray-200">
-                  <div className="flex items-center justify-center gap-6 mb-4">
-                    <Link
-                      href="/terms"
-                      onClick={closeMobile}
-                      className="text-sm text-ktf-gray-500 hover:text-ktf-blue transition-colors"
-                    >
-                      Terms
-                    </Link>
-                    <Link
-                      href="/privacy"
-                      onClick={closeMobile}
-                      className="text-sm text-ktf-gray-500 hover:text-ktf-blue transition-colors"
-                    >
-                      Privacy
-                    </Link>
-                  </div>
+              {/* Footer */}
+              <div className="shrink-0 border-t border-ktf-gray-100 px-4 pb-8 pt-4">
+                <div className="mb-4 flex items-center justify-center gap-5">
                   <Link
-                    href="/contact"
+                    href="/terms"
                     onClick={closeMobile}
-                    className="flex h-12 w-full items-center justify-center rounded-lg bg-ktf-blue text-base font-medium text-white transition-colors duration-150 hover:bg-ktf-blue-deep"
+                    className="text-sm font-medium text-ktf-blue/60 transition-colors hover:text-ktf-blue"
                   >
-                    Get Started
+                    Terms
+                  </Link>
+                  <span className="h-3 w-px bg-ktf-gray-200" aria-hidden="true" />
+                  <Link
+                    href="/privacy"
+                    onClick={closeMobile}
+                    className="text-sm font-medium text-ktf-blue/60 transition-colors hover:text-ktf-blue"
+                  >
+                    Privacy
                   </Link>
                 </div>
+                <Link
+                  href="/contact"
+                  onClick={closeMobile}
+                  className="flex h-12 w-full items-center justify-center rounded-xl bg-ktf-blue text-[15px] font-semibold text-white transition-colors duration-150 hover:bg-ktf-blue-deep active:bg-ktf-blue-pressed"
+                >
+                  Get Started
+                </Link>
               </div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
