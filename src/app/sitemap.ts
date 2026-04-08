@@ -16,6 +16,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/contact", priority: 0.9, changeFrequency: "yearly" as const },
     { url: "/terms", priority: 0.4, changeFrequency: "yearly" as const },
     { url: "/privacy", priority: 0.4, changeFrequency: "yearly" as const },
+    {
+      url: "/partnerships/tiers",
+      priority: 0.7,
+      changeFrequency: "monthly" as const,
+    },
   ];
 
   const now = new Date();

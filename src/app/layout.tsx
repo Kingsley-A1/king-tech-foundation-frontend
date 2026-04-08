@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   description:
     "For Honour and For Excellence, Engineering the Solutions of this, and the Next Generation.",
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://kingtechfoundation.com",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://kingtech.com.ng",
   ),
   manifest: "/manifest.webmanifest",
   icons: {
