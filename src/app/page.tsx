@@ -90,7 +90,7 @@ export default function HomePage() {
         {/* Blue dot grid */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.09]"
+          className="pointer-events-none absolute inset-0 opacity-[0.18]"
           style={{
             backgroundImage:
               "radial-gradient(circle at 1px 1px, #0a84ff 1px, transparent 0)",

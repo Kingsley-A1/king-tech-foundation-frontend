@@ -22,8 +22,9 @@ function ProjectCard({ project }: { project: Project }) {
         <Image
           src={project.image}
           alt={project.name}
-          fill
-          className={`object-cover transition-transform duration-500 ${
+          width={800}
+          height={450}
+          className={`h-full w-full object-cover transition-transform duration-500 ${
             isDisabled ? "saturate-75" : "group-hover:scale-105"
           }`}
           sizes="(max-width: 640px) 50vw, 25vw"
