@@ -7,7 +7,7 @@ export const SITE_TAGLINE = "For Honour and For Excellence";
 export const SITE_DESCRIPTION =
   "For Honour and For Excellence, Engineering the Solutions of this, and the Next Generation.";
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://kingtechfoundation.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://kingtech.com.ng";
 export const API_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
@@ -229,44 +229,56 @@ export const PARTNERS = [
   {
     id: "vercel",
     name: "Vercel",
-    description: "Global edge deployment platform",
+    description:
+      "Powering every KTF frontend deployment with instant global edge delivery and zero infrastructure overhead.",
     tier: "strategic" as const,
     websiteLink: "https://vercel.com",
+    logo: "https://cdn.simpleicons.org/vercel/000000",
   },
   {
     id: "railway",
     name: "Railway",
-    description: "Infrastructure for backend services",
+    description:
+      "Our preferred infrastructure for NestJS and backend deployments — reliable, scalable, and developer-first.",
     tier: "technology" as const,
     websiteLink: "https://railway.app",
+    logo: "https://cdn.simpleicons.org/railway/0B0D0E",
   },
   {
     id: "cockroachdb",
     name: "CockroachDB",
-    description: "Distributed SQL for high availability",
+    description:
+      "The distributed SQL backbone for our multi-tenant SaaS platforms — globally consistent with zero-downtime deployments.",
     tier: "technology" as const,
     websiteLink: "https://cockroachlabs.com",
+    logo: "https://logo.clearbit.com/cockroachlabs.com",
   },
   {
     id: "cloudflare",
     name: "Cloudflare",
-    description: "Edge network and security",
+    description:
+      "Every client project we deploy is secured and accelerated at the edge — DDoS protection, CDN, and zero-trust networking.",
     tier: "strategic" as const,
     websiteLink: "https://cloudflare.com",
+    logo: "https://cdn.simpleicons.org/cloudflare/F38020",
   },
   {
     id: "stripe",
     name: "Stripe",
-    description: "Payments infrastructure",
+    description:
+      "Our billing infrastructure of choice — handling subscriptions, one-time payments, and marketplace splits across client platforms.",
     tier: "community" as const,
     websiteLink: "https://stripe.com",
+    logo: "https://cdn.simpleicons.org/stripe/635BFF",
   },
   {
     id: "github",
     name: "GitHub",
-    description: "Source control and CI/CD",
+    description:
+      "Where all KTF code lives — our CI/CD pipeline, code reviews, and collaboration workflow run entirely on GitHub.",
     tier: "community" as const,
     websiteLink: "https://github.com",
+    logo: "https://cdn.simpleicons.org/github/181717",
   },
 ] as const;
 
@@ -275,41 +287,43 @@ export const PARTNERS = [
 export const PARTNERSHIP_TIERS = [
   {
     id: "strategic",
-    name: "Strategic Partner",
+    name: "Strategic",
     description:
-      "Deep technical integration and joint go-to-market programs with KTF's core engineering team.",
+      "A B2B revenue-sharing alliance. You bring us a project — we deliver it and share 10% of the revenue with you. We bring you an opportunity — you deliver it and share 10% with us. Mutual skin in the game.",
     benefits: [
-      "Co-development opportunities",
-      "Joint marketing & case studies",
-      "Early access to KTF solutions",
-      "Dedicated partnership manager",
-      "Revenue sharing programs",
+      "10% revenue share on referred projects — both ways",
+      "Formal partnership agreement included",
+      "Bi-directional business referral network",
+      "Joint performance tracking & reporting",
+      "Dedicated partnership liaison",
+      "Priority access to KTF engineering capacity",
     ],
     highlighted: true,
   },
   {
-    id: "technology",
-    name: "Technology Partner",
+    id: "co-development",
+    name: "Co-development",
     description:
-      "Technology integration, ecosystem collaboration, and access to KTF's developer network.",
+      "Deep technical integration and joint go-to-market programs with KTF's core engineering team — building products and solutions together.",
     benefits: [
-      "API & SDK integration support",
-      "Technical documentation access",
-      "Partner portal & resources",
-      "Quarterly business reviews",
+      "Co-development on joint engineering projects",
+      "Joint marketing & co-branded case studies",
+      "Early access to KTF solutions & tooling",
+      "Dedicated partnership manager",
+      "Revenue sharing programs on applicable projects",
     ],
     highlighted: false,
   },
   {
-    id: "community",
-    name: "Community Partner",
+    id: "technology",
+    name: "Technology",
     description:
-      "Ecosystem participation, community building, and mutual referral network access.",
+      "Technology integration, ecosystem collaboration, and access to KTF's developer network — amplifying your tools in everything we build.",
     benefits: [
-      "Partner directory listing",
-      "Community event access",
-      "Newsletter features",
-      "Network referrals",
+      "API & SDK integration into KTF-delivered projects",
+      "Technical documentation access & support",
+      "Partner portal & developer resources",
+      "Quarterly business reviews",
     ],
     highlighted: false,
   },
@@ -338,7 +352,7 @@ export const PROJECTS = [
   {
     id: "swift-type",
     name: "Swift Type",
-    type: "web" as ProjectType,
+    type: "desktop" as ProjectType,
     category: "Productivity Tool",
     description:
       "A high-performance speed typing platform with competitive leaderboards, customisable drill modes, and detailed WPM analytics for learners.",
