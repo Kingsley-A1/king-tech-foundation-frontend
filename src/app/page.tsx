@@ -318,7 +318,6 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-
       {/* ── The Powers Behind the Engine ──────────────────── */}
       <section className="bg-ktf-surface py-20 sm:py-24">
         <Container size="lg">
@@ -341,7 +340,6 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section className="bg-ktf-navy py-24 sm:py-32">
         <Container size="md" className="text-center">

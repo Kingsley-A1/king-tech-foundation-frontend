@@ -85,8 +85,7 @@ export default function PartnershipsPage() {
                         : "bg-ktf-gray-100 text-ktf-gray-600"
                   }`}
                 >
-                  {partner.tier.charAt(0).toUpperCase() +
-                    partner.tier.slice(1)}
+                  {partner.tier.charAt(0).toUpperCase() + partner.tier.slice(1)}
                 </span>
 
                 {/* Description */}
