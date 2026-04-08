@@ -135,10 +135,11 @@ export default function HomePage() {
           </div>
         </Container>
 
-        {/* Full-viewport-width marquee — intentionally outside Container */}
-        <div className="mt-12 pb-10">
-          <ProjectsMarquee />
-        </div>
+        <Container size="lg">
+          <div className="mt-12 pb-12">
+            <ProjectsMarquee />
+          </div>
+        </Container>
       </section>
       {/* ── Stats Strip ──────────────────────────────────────── */}{" "}
       <section className="bg-ktf-navy py-16">
