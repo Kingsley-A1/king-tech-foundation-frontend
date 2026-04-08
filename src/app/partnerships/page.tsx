@@ -2,6 +2,8 @@ import { Button, Badge } from "@/components/ui";
 import { TypingText } from "@/components/ui/typing-text";
 import { Container } from "@/components/layout";
 import { PARTNERS, PARTNERSHIP_TIERS } from "@/lib/constants";
+import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -45,27 +47,53 @@ export default function PartnershipsPage() {
               Those Who Share Our Standards
             </h2>
           </div>
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {PARTNERS.map((partner) => (
-              <div
-                key={partner.name}
-                className="flex flex-col items-center gap-3 rounded-xl border border-ktf-gray-200 bg-ktf-surface p-6 text-center"
+              <Link
+                key={partner.id}
+                href={partner.websiteLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center gap-4 rounded-2xl border border-ktf-gray-200 bg-ktf-white p-7 text-center shadow-card transition-all hover:border-ktf-blue/30 hover:shadow-lg"
               >
-                <span className="text-h5 font-bold text-ktf-navy">
-                  {partner.name}
-                </span>
+                {/* Logo */}
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-ktf-surface">
+                  <Image
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    width={40}
+                    height={40}
+                    className="object-contain"
+                    unoptimized
+                  />
+                </div>
+
+                {/* ID only */}
+                <div className="flex flex-col gap-1">
+                  <p className="text-caption font-semibold uppercase tracking-widest text-ktf-gray-400">
+                    {partner.id}
+                  </p>
+                </div>
+
+                {/* Tier badge */}
                 <span
-                  className={`rounded-full px-2.5 py-0.5 text-caption font-medium ${
+                  className={`rounded-full px-3 py-1 text-caption font-semibold ${
                     partner.tier === "strategic"
                       ? "bg-ktf-blue/10 text-ktf-blue"
                       : partner.tier === "technology"
                         ? "bg-ktf-success/10 text-ktf-success"
-                        : "bg-ktf-gray-200 text-ktf-gray-600"
+                        : "bg-ktf-gray-100 text-ktf-gray-600"
                   }`}
                 >
-                  {partner.tier.charAt(0).toUpperCase() + partner.tier.slice(1)}
+                  {partner.tier.charAt(0).toUpperCase() +
+                    partner.tier.slice(1)}
                 </span>
-              </div>
+
+                {/* Description */}
+                <p className="text-caption text-ktf-gray-600 leading-relaxed">
+                  {partner.description}
+                </p>
+              </Link>
             ))}
           </div>
         </Container>
@@ -151,7 +179,7 @@ export default function PartnershipsPage() {
                 </ul>
 
                 <Button
-                  href="/contact"
+                  href={`/partnerships/tiers#${tier.id}`}
                   variant={tier.highlighted ? "primary" : "outline"}
                   className={
                     !tier.highlighted
@@ -189,6 +217,29 @@ export default function PartnershipsPage() {
           <Button size="lg" href="/contact">
             Enquire About Partnering
           </Button>
+        </Container>
+      </section>
+
+      {/* ── The Powers Behind the Engine ──────────────────── */}
+      <section className="bg-ktf-surface py-20 sm:py-24">
+        <Container size="lg">
+          <div className="text-center mb-10">
+            <p className="text-overline font-semibold uppercase tracking-widest text-ktf-blue mb-3">
+              Our Team
+            </p>
+            <h2 className="text-h2 font-bold leading-heading text-ktf-navy">
+              The Powers Behind the Engine
+            </h2>
+          </div>
+          <div className="relative overflow-hidden rounded-2xl shadow-xl">
+            <Image
+              src="/Team/team.png"
+              alt="The King Tech Foundation team — The Powers Behind the Engine"
+              width={1200}
+              height={600}
+              className="w-full object-cover"
+            />
+          </div>
         </Container>
       </section>
     </>

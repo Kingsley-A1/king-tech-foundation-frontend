@@ -36,28 +36,8 @@ export default function ProjectsPage() {
   return (
     <>
       {/* ── Page Hero ─────────────────────────────────────────── */}
-      <section className="relative bg-ktf-obsidian overflow-hidden py-16 sm:py-20">
-        {/* Dot grid */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.035]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, #fff 1px, transparent 1px)",
-            backgroundSize: "32px 32px",
-          }}
-          aria-hidden="true"
-        />
-        {/* Radial glow */}
-        <div
-          className="pointer-events-none absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full opacity-[0.07]"
-          style={{
-            background:
-              "radial-gradient(circle at center, #0a84ff 0%, transparent 70%)",
-          }}
-          aria-hidden="true"
-        />
-
-        <Container size="lg" className="relative">
+      <section className="bg-ktf-navy py-16 sm:py-20">
+        <Container size="lg">
           <div className="max-w-3xl">
             <Badge
               variant="outline"

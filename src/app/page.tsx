@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button, Badge } from "@/components/ui";
 import { Container } from "@/components/layout";
 import { ProjectsMarquee } from "@/components/marketing/projects-marquee";
@@ -177,7 +178,7 @@ export default function HomePage() {
               <a
                 key={service.id}
                 href={`/services#${service.id}`}
-                className="group block rounded-2xl border border-ktf-gray-200 bg-ktf-surface p-8 transition-all duration-200 hover:border-ktf-blue/40 hover:shadow-card-hover"
+                className="group block rounded-2xl border border-ktf-blue-300 bg-ktf-surface p-8 transition-all duration-200 hover:border-ktf-blue/40 hover:shadow-card-hover"
               >
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-ktf-blue/10 text-ktf-blue text-h4">
                   {service.icon}
@@ -317,6 +318,30 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+
+      {/* ── The Powers Behind the Engine ──────────────────── */}
+      <section className="bg-ktf-surface py-20 sm:py-24">
+        <Container size="lg">
+          <div className="text-center mb-10">
+            <p className="text-overline font-semibold uppercase tracking-widest text-ktf-blue mb-3">
+              Our Team
+            </p>
+            <h2 className="text-h2 font-bold leading-heading text-ktf-navy">
+              The Powers Behind the Engine
+            </h2>
+          </div>
+          <div className="relative overflow-hidden rounded-2xl shadow-xl">
+            <Image
+              src="/Team/team.png"
+              alt="The King Tech Foundation team — The Powers Behind the Engine"
+              width={1200}
+              height={600}
+              className="w-full object-cover"
+            />
+          </div>
+        </Container>
+      </section>
+
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section className="bg-ktf-navy py-24 sm:py-32">
         <Container size="md" className="text-center">
