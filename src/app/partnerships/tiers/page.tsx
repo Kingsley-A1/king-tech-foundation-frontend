@@ -356,7 +356,7 @@ export default function PartnershipTiersPage() {
                   {tier.benefits.map((benefit) => (
                     <li key={benefit} className="flex items-start gap-3">
                       <span
-                        className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${detail.accentBg} ${detail.colour}`}
+                        className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-overline font-bold ${detail.accentBg} ${detail.colour}`}
                         aria-hidden="true"
                       >
                         ✓
@@ -432,8 +432,8 @@ export default function PartnershipTiersPage() {
           </h2>
           <p className="text-body-lg text-ktf-gray-400 leading-body max-w-xl mx-auto mb-10">
             Every great partnership starts with a conversation. Tell us what you
-            are building or pursuing, and we will tell you which tier makes
-            the most sense for both sides.
+            are building or pursuing, and we will tell you which tier makes the
+            most sense for both sides.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a

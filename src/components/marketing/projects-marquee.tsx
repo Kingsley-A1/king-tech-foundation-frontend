@@ -30,7 +30,7 @@ function ProjectCard({ project }: { project: Project }) {
           }`}
           sizes="320px"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-ktf-obsidian/85 via-ktf-obsidian/25 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-ktf-obsidian/30 via-transparent to-transparent" />
       </div>
 
       <div className="space-y-3 p-5">
