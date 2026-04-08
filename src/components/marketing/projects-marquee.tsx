@@ -11,7 +11,7 @@ function ProjectCard({ project }: { project: Project }) {
 
   const card = (
     <article
-      className={`group flex aspect-[3/4] flex-col overflow-hidden rounded-2xl border border-ktf-white/15 bg-linear-to-b from-ktf-navy/70 to-ktf-obsidian/95 shadow-card ${
+      className={`group flex aspect-3/5 flex-col overflow-hidden rounded-2xl border border-ktf-white/15 bg-linear-to-b from-ktf-navy/70 to-ktf-obsidian/95 shadow-card sm:aspect-3/4 ${
         isDisabled
           ? "opacity-90"
           : "transition-transform duration-300 hover:-translate-y-1 hover:shadow-card-hover"
@@ -31,7 +31,7 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
 
       {/* Content — remaining half */}
-      <div className="flex flex-1 flex-col gap-2 overflow-hidden p-3 sm:p-4">
+      <div className="flex flex-1 flex-col gap-1.5 p-3 sm:gap-2 sm:p-4">
         {/* Category pill */}
         <span className="inline-block self-start whitespace-nowrap rounded-full border border-ktf-blue/30 bg-ktf-blue/10 px-2.5 py-0.5 text-[10px] font-semibold leading-tight text-ktf-blue">
           {project.category}
@@ -50,12 +50,12 @@ function ProjectCard({ project }: { project: Project }) {
         )}
 
         {/* Title */}
-        <h3 className="truncate text-sm font-bold leading-snug text-ktf-white">
+        <h3 className="truncate text-xs font-bold leading-snug text-ktf-white sm:text-sm">
           {project.name}
         </h3>
 
         {/* Description */}
-        <p className="line-clamp-2 flex-1 text-[11px] leading-relaxed text-ktf-gray-400">
+        <p className="line-clamp-1 flex-1 text-[10px] leading-relaxed text-ktf-gray-400 sm:line-clamp-2 sm:text-overline">
           {project.description}
         </p>
 
