@@ -30,9 +30,9 @@ export const NAV_LINKS = [
 // ── Stats ──────────────────────────────────────────────────────────────────
 
 export const STATS = [
-  { value: "11+", label: "Projects Delivered" },
+  { value: "14+", label: "Projects Delivered" },
   { value: "3–4 Wks", label: "Est. Delivery" },
-  { value: "4+", label: "Years of Excellence" },
+  { value: "2+", label: "Years of Excellence" },
   { value: "99%", label: "Client Satisfaction" },
 ] as const;
 
@@ -197,7 +197,7 @@ export const TESTIMONIALS = [
       "Working with KTF was a defining moment for our startup. They delivered a production-ready SaaS platform in record time, without a single compromise on quality or performance.",
     author: "James Thornton",
     role: "Chief Executive Officer",
-    company: "Nexus Health AI",
+    company: "Debranded Studio",
     initials: "JT",
     rating: 5,
   },
@@ -355,7 +355,7 @@ export const PROJECTS = [
     type: "desktop" as ProjectType,
     category: "Productivity Tool",
     description:
-      "A high-performance speed typing platform with competitive leaderboards, customisable drill modes, and detailed WPM analytics for learners.",
+      "An AI Powered and high-performance speed typing platform with competitive leaderboards, customisable drill modes, and detailed WPM analytics for computer professionals and  learners.",
     image: "/projects/swift-type.png",
     liveUrl: "https://swift-type-two.vercel.app",
     tags: ["React", "TypeScript", "Real-time"],
@@ -371,7 +371,7 @@ export const PROJECTS = [
     description:
       "An interactive browser-based piano learning application with structured lessons, live key detection, and audio playback feedback.",
     image: "/projects/sonic-piano.jpg",
-    liveUrl: "https://kingsley-a1.github.io/sonic-piano",
+    liveUrl: "https://kingsley-a1.github.io/Sonic-Pro/index.html",
     tags: ["JavaScript", "Web Audio API", "Canvas"],
     year: "2024",
     comingSoon: false,
@@ -383,7 +383,7 @@ export const PROJECTS = [
     type: "web" as ProjectType,
     category: "Brand & Design Studio",
     description:
-      "Portfolio and showcase platform for a leading brand identity studio, with rich project galleries, case studies, and client engagement features.",
+      "A brand identity and advertising platform, using the power of modern technology, AI, and creative design to elevate brands and engage audiences.",
     image: "/projects/debranded.png",
     liveUrl: "https://debranded.vercel.app",
     tags: ["Next.js", "Sanity CMS", "Motion"],
@@ -393,11 +393,11 @@ export const PROJECTS = [
   },
   {
     id: "crs-pdvs",
-    name: "CRS Pension DSV",
+    name: "CRS Pension DVS",
     type: "web" as ProjectType,
     category: "Government Digital Service",
     description:
-      "Cross River State Pension Digital Verification System — a secure government portal for streamlining pension administration and verification workflows.",
+      "Cross River State Pension Digital Verification System — a secure government portal for Pensioners live verification, streamlining pension administration and verification workflows.",
     image: "/projects/crs-pdvs.png",
     liveUrl: "https://kingsley-a1.github.io/crs-pdvs",
     tags: ["Next.js", "PostgreSQL", "Authentication"],
@@ -425,7 +425,7 @@ export const PROJECTS = [
     type: "web" as ProjectType,
     category: "All-in-One Media Player",
     description:
-      "A feature-rich browser-based media player supporting multiple formats with an elegant, minimal interface and seamless playback experience.",
+      "A feature-rich browser-based media player supporting vidoe, audio, image, file and documents of any type, with elegant and  minimal interface and seamless playback experience.",
     image: "/projects/coolest.png",
     liveUrl: "https://coolest-six.vercel.app",
     tags: ["React", "HTML5 Media API", "Web APIs"],
@@ -439,7 +439,7 @@ export const PROJECTS = [
     type: "web" as ProjectType,
     category: "Link Management",
     description:
-      "A smart link-in-bio and URL management platform for creators and businesses, with click analytics and custom branding options.",
+      "A creative Valentine Experience — a seamless platform for sharing love and appreciation with personalised messaging collections, custom domains, and heartfelt messages.",
     image: "/projects/val-link.svg",
     liveUrl: "https://val-link.vercel.app",
     tags: ["Next.js", "Analytics", "Redis"],
