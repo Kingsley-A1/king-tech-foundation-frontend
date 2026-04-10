@@ -251,7 +251,7 @@ export const PARTNERS = [
       "The distributed SQL backbone for our multi-tenant SaaS platforms — globally consistent with zero-downtime deployments.",
     tier: "technology" as const,
     websiteLink: "https://cockroachlabs.com",
-    logo: "https://logo.clearbit.com/cockroachlabs.com",
+    logo: "https://www.postbeyond.com/wp-content/uploads/2022/12/Cockroach_Labs_Logo-2.png",
   },
   {
     id: "cloudflare",
@@ -282,7 +282,7 @@ export const PARTNERS = [
   },
 ] as const;
 
-// ── Partnership Tiers ──────────────────────────────────────────────────────
+
 
 export const PARTNERSHIP_TIERS = [
   {
