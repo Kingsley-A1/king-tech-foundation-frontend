@@ -54,7 +54,7 @@ export default function HomePage() {
             <span className="block">Engineering The Solutions</span>
             <span className="block">For This, and</span>
             <span className="block text-ktf-blue">
-              <TypingText text="The Next Generation" className="text-ktf-blue" />
+              <TypingText text="The Next Generation" className="text-ktf-blue" showCursor={false} />
               <span className="animate-blink text-white font-light">_</span>
             </span>
           </h1>
