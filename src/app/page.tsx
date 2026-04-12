@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button, Badge } from "@/components/ui";
 import { Container } from "@/components/layout";
 import { ProjectsMarquee } from "@/components/marketing/projects-marquee";
+import { TypingText } from "@/components/ui/typing-text";
 import {
   STATS,
   SERVICES,
@@ -53,14 +54,12 @@ export default function HomePage() {
             <span className="block">Engineering The Solutions</span>
             <span className="block">For This, and</span>
             <span className="block text-ktf-blue">
-              The Next Generation
+              <TypingText text="The Next Generation" className="text-ktf-blue" />
               <span className="animate-blink text-white font-light">_</span>
             </span>
           </h1>
           <p className="mt-6 text-body-lg leading-body text-ktf-gray-400 max-w-xl mx-auto">
-            King Tech Foundation builds production-grade digital products — web,
-            mobile, cloud, and AI — delivered with relentless craftsmanship and
-            a 3–4 week turnaround.
+            We build Industry standard digital platforms,  from  Web to Mobile, Cloud, and AI. Systems engineerd by us is trusted to be user-centric, security by design and battle-tested.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Button size="lg" href="/contact">
