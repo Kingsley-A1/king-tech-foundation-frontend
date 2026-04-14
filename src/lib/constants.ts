@@ -11,9 +11,9 @@ export const SITE_URL =
 export const API_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
-export const PHONE_NUMBER = "09036826272";
-export const PHONE_DISPLAY = "0903 682 6272";
-export const WHATSAPP_NUMBER = "2349036826272";
+export const PHONE_NUMBER = "08088071657";
+export const PHONE_DISPLAY = "08088071657";
+export const WHATSAPP_NUMBER = "2348088071657";
 export const WHATSAPP_INQUIRY_MESSAGE =
   "Hello King Tech Foundation, I'd like to enquire about your engineering services. Please can you help me?";
 
@@ -281,8 +281,6 @@ export const PARTNERS = [
     logo: "https://cdn.simpleicons.org/github/181717",
   },
 ] as const;
-
-
 
 export const PARTNERSHIP_TIERS = [
   {
